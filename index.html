@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEED OF FAITH MONTESSORI
+</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+     html,
+body{
+    max-width: 100%;
+        overflow-x: hidden;
+        /* Prevent horizontal scroll */
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* LOADING SCREEN */
+.loader-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99999;
+    transition: opacity 1s ease;
+}
+
+.loader{
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(255,255,255,0.2);
+    border-top: 8px solid gold;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loader-text{
+    color: white;
+    margin-top: 20px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse{
+    0%{opacity: 0.5;}
+    50%{opacity: 1;}
+    100%{opacity: 0.5;}
+}
+
+/* HERO */
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914');
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 140px 20px;
+    text-align: center;
+}
+
+/* SECTION */
+.section{
+    padding: 70px 20px;
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gold{
+    color: gold;
+}
+
+/* FOOTER */
+.footer{
+    background: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* NAVBAR */
+.navbar{
+    background: transparent;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.navbar-nav .nav-link{
+    color: rgb(17, 9, 66) !important;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 18px;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* ICON SPACING */
+.nav-link i{
+    margin-right: 6px;
+}
+
+/* HOVER EFFECT */
+.navbar-nav .nav-link:hover{
+    color: gold !important;
+    transform: translateY(-2px);
+}
+
+/* UNDERLINE ANIMATION */
+.navbar-nav .nav-link::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: gold;
+    transition: 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after{
+    width: 100%;
+}
+
+/* SCHOOL LOGO */
+.school-logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: transparent;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.school-logo:hover{
+    transform: scale(1.08);
+}
+
+/* HERO SECTION */
+.hero{
+    position: relative;
+    width: 100%;
+    min-height: 150vh;
+
+    background:
+    url('images/COVERPAGE.jpeg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+/* DARK OVERLAY */
+.hero-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.55);
+}
+
+/* HERO CONTENT */
+.hero-content{
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+
+    animation: heroFade 1.5s ease;
+}
+
+/* TITLE */
+.hero h1{
+    font-size: 65px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+
+/* TEXT */
+.hero-text{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* LOCATION */
+.hero-location{
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.hero-btn{
+    display: inline-block;
+    padding: 14px 35px;
+    background: gold;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover{
+    background: white;
+    transform: translateY(-3px);
+}
+
+/* HERO ANIMATION */
+@keyframes heroFade{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size: 38px;
+    }
+
+    .hero-text{
+        font-size: 18px;
+    }
+
+    .hero-location{
+        font-size: 15px;
+    }
+
+    .hero-btn{
+        padding: 12px 25px;
+    }
+}
+
+/* GALLERY IMAGES */
+#gallery img{
+    transition: 0.4s ease;
+}
+
+#gallery img:hover{
+    transform: scale(1.03);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size: 32px;
+    }
+
+    .navbar-nav .nav-link{
+        font-size: 18px;
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .school-logo{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* MESSAGE SECTIONS */
+.message-section{
+    padding: 90px 20px;
+}
+
+.message-card{
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: 0.4s ease;
+}
+
+.message-card:hover{
+    transform: translateY(-8px);
+}
+
+.message-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 450px;
+}
+
+.message-content{
+    padding: 50px;
+}
+
+.message-title{
+    color: gold;
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.message-name{
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d1b52;
+    margin-top: 25px;
+}
+
+.message-role{
+    color: gray;
+    font-size: 18px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .message-image{
+        min-height: 300px;
+    }
+
+    .message-content{
+        padding: 30px;
+    }
+
+    .message-title{
+        font-size: 28px;
+    }
+
+}
+
+/* ABOUT SECTION */
+.about-section{
+    background: #fff;
+    overflow: hidden;
+}
+
+/* IMAGE WRAPPER */
+.about-image-wrapper{
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+/* IMAGE */
+.about-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+
+    transition: 0.5s ease;
+}
+
+/* IMAGE HOVER */
+.about-image:hover{
+    transform: scale(1.05);
+}
+
+/* CONTENT */
+.about-content{
+    padding: 20px;
+}
+
+/* TITLE */
+.about-title{
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* TEXT */
+.about-text{
+    font-size: 18px;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+.about-btn{
+    display: inline-block;
+    padding: 14px 35px;
+
+    background: gold;
+    color: black;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 50px;
+
+    transition: 0.3s ease;
+}
+
+/* BUTTON HOVER */
+.about-btn:hover{
+    background: #0d1b52;
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .about-title{
+        font-size: 34px;
+        text-align: center;
+    }
+
+    .about-text{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .about-content{
+        text-align: center;
+    }
+
+}
+
+/* MODERN MAGAZINE SECTION */
+.magazine-section{
+    position: relative;
+    overflow: hidden;
+}
+
+/* BLUE BACKGROUND STYLE */
+.magazine-blue{
+    background: linear-gradient(135deg,#11b5e4,#0b7bb8);
+    color: white;
+}
+
+/* WHITE BACKGROUND STYLE */
+.magazine-white{
+    background: white;
+}
+
+/* CONTENT BOX */
+.magazine-card{
+    background: rgba(255,255,255,0.95);
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+    transition: 0.5s ease;
+}
+
+.magazine-card:hover{
+    transform: translateY(-10px);
+}
+
+/* SECTION IMAGE */
+.magazine-image{
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.magazine-content{
+    padding: 50px;
+}
+
+/* TITLES */
+.magazine-title{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #0d1b52;
+}
+
+/* TEXT */
+.magazine-text{
+    font-size: 18px;
+    line-height: 1.9;
+    color: #444;
+}
+
+/* ACCENT LINE */
+.magazine-line{
+    width: 120px;
+    height: 6px;
+    background: linear-gradient(to right,
+    #f7c600,
+    #ff5c5c,
+    #58d3e5);
+
+    border-radius: 50px;
+    margin-top: 25px;
+}
+
+/* FLOATING CIRCLES */
+.circle{
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+}
+
+.circle1{
+    width: 300px;
+    height: 300px;
+    background: white;
+    top: -50px;
+    right: -50px;
+}
+
+.circle2{
+    width: 180px;
+    height: 180px;
+    background: yellow;
+    bottom: -40px;
+    left: -40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .magazine-title{
+        font-size: 34px;
+    }
+
+    .magazine-content{
+        padding: 30px;
+    }
+
+    .magazine-image{
+        min-height: 300px;
+    }
+
+}
+
+/* ================= SECTION ================= */
+.poems-section {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f8f9fa;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.poems-section h2 {
+  margin-bottom: 20px;
+}
+
+/* ================= SLIDER ================= */
+.poems-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollLeft 25s linear infinite;
+}
+
+.poems-track:hover {
+  animation-play-state: paused;
+}
+
+/* ================= CARD ================= */
+.poem-card {
+  min-width: 300px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.poem-card:hover {
+  transform: scale(1.05);
+}
+
+/* HEADER */
+.poem-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.poem-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid gold;
+}
+
+.poem-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.poem-header small {
+  color: gray;
+  font-size: 12px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: pop 0.3s ease;
+  position: relative;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* MODAL HEADER */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.modal-header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid gold;
+}
+/* ================= PLAYABLE PUZZLE GAME ================= */
+
+.game-wrapper{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+}
+
+.puzzle-container{
+    display:grid;
+    grid-template-columns:repeat(15,40px);
+    gap:4px;
+    justify-content:center;
+}
+
+.cell{
+    width:40px;
+    height:40px;
+    background:white;
+    border:1px solid #ddd;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+    user-select:none;
+}
+
+.cell:hover{
+    background:#f1f1f1;
+    transform:scale(1.05);
+}
+
+.selected{
+    background:gold;
+    color:black;
+}
+
+.found{
+    background:#0d6efd;
+    color:white;
+}
+
+/* WORD LIST */
+.word-list{
+    max-width:320px;
+    text-align:left;
+}
+
+.words{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.word{
+    background:white;
+    padding:10px 14px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    font-size:14px;
+    transition:0.3s;
+}
+
+.completed{
+    background:green;
+    color:white;
+    text-decoration:line-through;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .puzzle-container{
+        grid-template-columns:repeat(15,24px);
+    }
+
+    .cell{
+        width:24px;
+        height:24px;
+        font-size:11px;
+    }
+
+}
+
+/* ================= ADVANCED MAZE ================= */
+
+.game-stats{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat-box{
+    background:white;
+    padding:12px 20px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.1);
+    font-weight:bold;
+}
+
+#maze{
+    display:grid;
+    gap:4px;
+    justify-content:center;
+}
+
+.cell{
+    width:65px;
+    height:65px;
+    border-radius:8px;
+    transition:0.2s;
+}
+
+.wall{
+    background:#111;
+}
+
+.path{
+    background:#f1f1f1;
+}
+
+.player{
+    background:gold;
+    border-radius:50%;
+    box-shadow:0 0 20px gold;
+}
+
+.coin{
+    background:#fff4b3;
+    position:relative;
+}
+
+.coin::after{
+    content:'⭐';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.trophy{
+    background:#d4ffd4;
+    position:relative;
+}
+
+.trophy::after{
+    content:'🏆';
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:28px;
+}
+
+/* MOBILE CONTROLS */
+.mobile-controls{
+    display:none;
+}
+
+.mobile-controls button{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:12px;
+    margin:5px;
+    font-size:24px;
+    background:gold;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+    .cell{
+        width:42px;
+        height:42px;
+    }
+
+    .mobile-controls{
+        display:block;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container-fluid">
+<a class="navbar-brand" href="#">
+    <img src="images/anniversary logo.png" alt="School Logo" class="school-logo">
+</a>
+<button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#nav">
+☰
+</button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+  <a class="nav-link" href="#contact-Us">
+    <i class="fas fa-envelope"></i> Contact
+  </a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <!-- HERO OVERLAY -->
+    <div class="hero-overlay"></div>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+
+        <a href="#about" class="hero-btn">
+            Explore More
+        </a>
+    </div>
+
+</section>
+
+<!-- MODERN ABOUT SECTION -->
+<section id="about"
+class="magazine-section magazine-white"
+data-aos="fade-up">
+
+<!-- FLOATING SHAPES -->
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="row g-0 align-items-center">
+
+<!-- IMAGE SIDE -->
+<div class="col-lg-5"
+data-aos="fade-right">
+
+<img src="images/featured 1.png"
+class="magazine-image">
+
+</div>
+
+<!-- TEXT SIDE -->
+<div class="col-lg-7"
+data-aos="fade-left">
+
+<div class="magazine-content">
+
+<h2 class="magazine-title">
+ABOUT OUR SCHOOL
+</h2>
+
+<p class="magazine-text">
+
+Seed of Faith Montessori School is a
+faith-based institution committed to
+raising disciplined, confident and
+academically excellent learners.
+
+</p>
+
+<p class="magazine-text">
+
+Our school combines modern teaching
+methods with strong moral values,
+innovation and practical learning
+to prepare students for the future.
+
+</p>
+
+<p class="magazine-text">
+
+We provide a safe and nurturing
+environment where every child
+is encouraged to grow spiritually,
+socially and academically.
+
+</p>
+
+<div class="magazine-line"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- DIRECTOR'S MESSAGE -->
+<section class="magazine-section magazine-blue"
+data-aos="fade-right">
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="row g-0 align-items-center">
+
+<!-- IMAGE -->
+<div class="col-lg-5">
+<img src="images/featured 2.jpeg"
+class="magazine-image">
+</div>
+
+<!-- CONTENT -->
+<div class="col-lg-7">
+
+<div class="magazine-content">
+
+<h2 class="magazine-title">
+DIRECTOR'S MESSAGE
+</h2>
+
+<p class="magazine-text">
+Welcome to Seed of Faith Montessori School,
+where excellence, discipline and faith guide
+everything we do.
+</p>
+
+<p class="magazine-text">
+Our mission is to nurture confident,
+responsible and academically excellent
+learners who are prepared for the future.
+</p>
+
+<p class="magazine-text">
+We believe every child has unique potential,
+and we are committed to helping each learner
+grow spiritually, socially and academically.
+</p>
+
+<h4 class="message-name">
+Mrs. Diana Nkrumah
+</h4>
+
+<p class="message-role">
+Director
+</p>
+
+<div class="magazine-line"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CEO MESSAGE -->
+<section class="magazine-section magazine-white"
+data-aos="fade-left">
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="row g-0 align-items-center">
+
+<!-- IMAGE -->
+<div class="col-lg-5">
+<img src="images/CEO.jpeg"
+class="magazine-image">
+</div>
+
+<!-- CONTENT -->
+<div class="col-lg-7">
+
+<div class="magazine-content">
+
+<h2 class="magazine-title">
+CEO'S MESSAGE
+</h2>
+
+<p class="magazine-text">
+At Seed of Faith Montessori School,
+we are passionate about creating a safe,
+innovative and inspiring learning environment.
+</p>
+
+<p class="magazine-text">
+Education is not only about academics;
+it is about building character,
+leadership and confidence in every child.
+</p>
+
+<p class="magazine-text">
+We appreciate all parents and guardians
+for trusting us with the education
+and future of their children.
+</p>
+
+<h4 class="message-name">
+Mr. John Doe
+</h4>
+
+<p class="message-role">
+Chief Executive Officer
+</p>
+
+<div class="magazine-line"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- VISION & MISSION -->
+<section class="magazine-section magazine-blue"
+data-aos="zoom-in">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+VISION & MISSION
+</h2>
+
+<p class="magazine-text">
+<strong>Vision:</strong>
+To become the model educational centre
+in the sub-region.
+</p>
+
+<p class="magazine-text">
+<strong>Mission:</strong>
+To empower students to become
+lifelong learners.
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CORE VALUES -->
+<section class="magazine-section magazine-white"
+data-aos="fade-up">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+CORE VALUES
+</h2>
+
+<p class="magazine-text">
+🙏 Faith
+</p>
+
+<p class="magazine-text">
+🤝 Integrity
+</p>
+
+<p class="magazine-text">
+🏆 Excellence
+</p>
+
+<p class="magazine-text">
+💪 Dedication
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics"
+class="magazine-section magazine-blue"
+data-aos="fade-up">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+ACADEMICS
+</h2>
+
+<p class="magazine-text">
+📘 French
+</p>
+
+<p class="magazine-text">
+💻 Computer Lab
+</p>
+
+<p class="magazine-text">
+🧪 Practical Learning
+</p>
+
+<p class="magazine-text">
+🧼 Hygiene Education
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities"
+class="magazine-section magazine-white"
+data-aos="fade-right">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+ACTIVITIES
+</h2>
+
+<p class="magazine-text">
+⚽ Sports
+</p>
+
+<p class="magazine-text">
+🎭 Cultural Day
+</p>
+
+<p class="magazine-text">
+🎓 Graduation
+</p>
+
+<p class="magazine-text">
+🙏 Worship & Assembly
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+<section id="gallery"
+class="magazine-section magazine-blue"
+data-aos="zoom-in-up">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+OUR JOURNEY
+</h2>
+
+<div class="row g-4 mt-4">
+
+<div class="col-md-6">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+class="img-fluid rounded">
+</div>
+
+<div class="col-md-6">
+<img src="https://images.unsplash.com/photo-1588072432836-e10032774350"
+class="img-fluid rounded">
+</div>
+
+</div>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STUDENTS -->
+<section id="students"
+class="magazine-section magazine-white"
+data-aos="flip-up">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+STUDENT CORNER
+</h2>
+
+<h4>✍🏾 Poem</h4>
+
+<p class="magazine-text">
+"Education lights the way,
+guiding us every day."
+</p>
+
+<h4 class="mt-5">🧩 Puzzle</h4>
+
+<p class="magazine-text">
+What has keys but can't open locks?
+</p>
+
+<p class="fw-bold">
+Answer: Piano
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="puzzle-section"></section>
+<!-- ================= PLAYABLE PUZZLE SECTION ================= -->
+<section class="puzzle-section">
+
+<h2 class="magazine-title text-center">
+🧩 Interactive Word Search Challenge
+</h2>
+
+<p class="magazine-text text-center">
+Find all the hidden emotion words below.
+</p>
+
+<div class="game-wrapper">
+
+    <!-- PUZZLE GRID -->
+    <div class="puzzle-container" id="grid"></div>
+
+    <!-- WORD LIST -->
+    <div class="word-list">
+
+        <h3 class="mb-4">Words To Find</h3>
+
+        <div class="words" id="wordList"></div>
+
+    </div>
+
+</div>
+
+</section>
+<!-- ================= ADVANCED MAZE GAME ================= -->
+<section class="magazine-section magazine-white">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+🎮 Maze Adventure Challenge
+</h2>
+
+<p class="magazine-text">
+Collect coins and reach the trophy before time runs out!
+</p>
+
+<div class="game-stats">
+
+<div class="stat-box">
+⭐ Coins:
+<span id="coinCount">0</span>
+</div>
+
+<div class="stat-box">
+❤️ Lives:
+<span id="lives">3</span>
+</div>
+
+<div class="stat-box">
+⏱ Time:
+<span id="timer">60</span>
+</div>
+
+<div class="stat-box">
+🏆 Level:
+<span id="levelDisplay">1</span>
+</div>
+
+</div>
+
+<div class="maze-wrapper">
+
+<div id="maze"></div>
+
+</div>
+
+<!-- MOBILE CONTROLS -->
+<div class="mobile-controls mt-4">
+
+<button onclick="manualMove('up')">⬆</button>
+
+<div>
+<button onclick="manualMove('left')">⬅</button>
+<button onclick="manualMove('down')">⬇</button>
+<button onclick="manualMove('right')">➡</button>
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<button class="btn btn-warning"
+onclick="restartLevel()">
+Restart Level
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= POEMS SECTION ================= -->
+<section class="poems-section">
+  <h2>Poems from Learners</h2>
+
+  <div class="poems-track">
+
+    <!-- CARD 1 -->
+    <div class="poem-card"
+      onclick="openModal('Ama','Basic 4','My school is bright and full of light...','images/ama.jpg')">
+
+      <div class="poem-header">
+        <img src="images/ama.jpg" alt="Ama">
+        <div>
+          <h3>Ama</h3>
+          <small>Basic 4</small>
+        </div>
+      </div>
+      <p>My school is bright and full of light...</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="poem-card"
+      onclick="openModal('Kofi','Basic 5','My teacher is kind and always near...','images/kofi.jpg')">
+
+      <div class="poem-header">
+        <img src="images/kofi.jpg" alt="Kofi">
+        <div>
+          <h3>Kofi</h3>
+          <small>Basic 5</small>
+        </div>
+      </div>
+      <p>My teacher is kind and always near...</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="poem-card"
+      onclick="openModal('Efua','Basic 6','Ghana my home, so warm and free...','images/efua.jpg')">
+
+      <div class="poem-header">
+        <img src="images/efua.jpg" alt="Efua">
+        <div>
+          <h3>Efua</h3>
+          <small>Basic 6</small>
+        </div>
+      </div>
+      <p>Ghana my home, so warm and free...</p>
+    </div>
+
+    <!-- DUPLICATES FOR LOOP -->
+    <div class="poem-card"
+      onclick="openModal('Ama','Basic 4','My school is bright and full of light...','images/ama.jpg')">
+      <div class="poem-header">
+        <img src="images/ama.jpg">
+        <div><h3>Ama</h3><small>Basic 4</small></div>
+      </div>
+      <p>My school is bright and full of light...</p>
+    </div>
+
+    <div class="poem-card"
+      onclick="openModal('Kofi','Basic 5','My teacher is kind and always near...','images/kofi.jpg')">
+      <div class="poem-header">
+        <img src="images/kofi.jpg">
+        <div><h3>Kofi</h3><small>Basic 5</small></div>
+      </div>
+      <p>My teacher is kind and always near...</p>
+    </div>
+
+    <div class="poem-card"
+      onclick="openModal('Efua','Basic 6','Ghana my home, so warm and free...','images/efua.jpg')">
+      <div class="poem-header">
+        <img src="images/efua.jpg">
+        <div><h3>Efua</h3><small>Basic 6</small></div>
+      </div>
+      <p>Ghana my home, so warm and free...</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MODAL ================= -->
+<div id="poemModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <div class="modal-header">
+      <img id="modalImg" src="">
+      <div>
+        <h2 id="modalName"></h2>
+        <small id="modalClass"></small>
+      </div>
+    </div>
+
+    <p id="modalText"></p>
+
+  </div>
+</div>
+
+<!-- ADVERTISEMENT -->
+<section class="magazine-section magazine-blue"
+data-aos="fade-left">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+ADVERTISE WITH US
+</h2>
+
+<p class="magazine-text">
+Reach parents and students
+through our digital platform.
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- CONTACT -->
+<section id="contact"
+class="magazine-section magazine-white"
+data-aos="fade-up">
+
+<div class="container-fluid">
+
+<div class="magazine-card">
+
+<div class="magazine-content text-center">
+
+<h2 class="magazine-title">
+CONTACT US
+</h2>
+
+<p class="magazine-text">
+📍 Ofankor Barrier
+</p>
+
+<p class="magazine-text">
+📞 0256755516
+</p>
+
+<div class="magazine-line mx-auto"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+
+    const loader = document.getElementById("loader-wrapper");
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 1000);
+
+    }, 1800);
+
+});
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 1400,
+    once: true,
+    offset: 120
+});
+
+function openModal(name, className, poem, image) {
+  document.getElementById("modalName").innerText = name;
+  document.getElementById("modalClass").innerText = className;
+  document.getElementById("modalText").innerText = poem;
+  document.getElementById("modalImg").src = image;
+
+  document.getElementById("poemModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("poemModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  let modal = document.getElementById("poemModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+/* ================= ADVANCED WORD SEARCH ================= */
+
+const words = [
+"ANGRY","ANXIOUS","ASHAMED","ASTONISHED","BORED",
+"CONFIDENT","CONFUSED","DEPRESSED","EXCITED","FRUSTRATED",
+"GRUMPY","HAPPY","HOPEFUL","JEALOUS","LONELY",
+"OVERWHELMED","PROUD","SAD","SCARED","SHY",
+"SILLY","TERRIFIED","UNHAPPY","UPSET","NERVOUS",
+"JOYFUL","CALM","EMOTIONAL","DELIGHTED","WORRIED"
+];
+
+const gridLetters = [
+"ANGRYXCVBNMASD",
+"ZXCASDQWEHAPPY",
+"PROUDLKJHGFDSA",
+"QWERTYUIOPLKJM",
+"ANXIOUSMNBVCXZ",
+"CONFIDENTQWERT",
+"BOREDYUIOPASDF",
+"SHYLKJHGFDSAZX",
+"SADQWERTYUIOPA",
+"UPSETLKJHGFDSA",
+"CALMZXCVBNMQWE",
+"JOYFULASDFGHJK",
+"NERVOUSPOIUYTR",
+"WORRIEDMNBVCXZ",
+"DELIGHTEDLKJHG"
+];
+
+const grid = document.getElementById("grid");
+
+let selectedLetters = [];
+let selectedCells = [];
+
+gridLetters.forEach((row,rowIndex)=>{
+
+    row.split('').forEach((letter,colIndex)=>{
+
+        const cell = document.createElement("div");
+
+        cell.classList.add("cell");
+
+        cell.textContent = letter;
+
+        cell.dataset.row = rowIndex;
+        cell.dataset.col = colIndex;
+
+        cell.addEventListener("click",()=>{
+
+            if(cell.classList.contains("found")) return;
+
+            cell.classList.toggle("selected");
+
+            if(cell.classList.contains("selected")){
+
+                selectedLetters.push(letter);
+                selectedCells.push(cell);
+
+            }else{
+
+                selectedLetters.pop();
+                selectedCells.pop();
+
+            }
+
+            checkWord();
+
+        });
+
+        grid.appendChild(cell);
+
+    });
+
+});
+
+/* CREATE WORD LIST */
+const wordList = document.getElementById("wordList");
+
+words.forEach(word=>{
+
+    const div = document.createElement("div");
+
+    div.classList.add("word");
+
+    div.id = word;
+
+    div.textContent = word;
+
+    wordList.appendChild(div);
+
+});
+
+/* CHECK WORD */
+function checkWord(){
+
+    const formedWord = selectedLetters.join('');
+
+    if(words.includes(formedWord)){
+
+        selectedCells.forEach(cell=>{
+
+            cell.classList.remove("selected");
+
+            cell.classList.add("found");
+
+        });
+
+        document.getElementById(formedWord)
+        .classList.add("completed");
+
+        selectedLetters = [];
+        selectedCells = [];
+
+    }
+
+}
+
+/* ================= ADVANCED MAZE GAME ================= */
+
+const mazeLevels = [
+
+[
+[1,1,1,1,1,1],
+[1,0,3,0,2,1],
+[1,0,1,0,0,1],
+[1,0,0,3,0,1],
+[1,1,0,0,0,1],
+[1,1,1,1,1,1]
+],
+
+[
+[1,1,1,1,1,1,1],
+[1,0,3,0,1,2,1],
+[1,0,1,0,1,0,1],
+[1,0,1,0,0,0,1],
+[1,3,0,1,1,0,1],
+[1,1,0,0,0,0,1],
+[1,1,1,1,1,1,1]
+]
+
+];
+
+let currentLevel = 0;
+
+let playerPosition = {x:1,y:1};
+
+let coins = 0;
+
+let lives = 3;
+
+let timeLeft = 60;
+
+let timer;
+
+const mazeContainer =
+document.getElementById("maze");
+
+/* LOAD LEVEL */
+function loadLevel(level){
+
+    clearInterval(timer);
+
+    timeLeft = 60;
+
+    document.getElementById("timer")
+    .innerText = timeLeft;
+
+    startTimer();
+
+    mazeContainer.innerHTML = "";
+
+    const maze = mazeLevels[level];
+
+    const cols = maze[0].length;
+
+    mazeContainer.style.gridTemplateColumns =
+    `repeat(${cols},65px)`;
+
+    playerPosition = {x:1,y:1};
+
+    maze.forEach((row,y)=>{
+
+        row.forEach((cell,x)=>{
+
+            const div =
+            document.createElement("div");
+
+            div.classList.add("cell");
+
+            if(cell === 1){
+
+                div.classList.add("wall");
+
+            }else if(cell === 2){
+
+                div.classList.add("trophy");
+
+            }else if(cell === 3){
+
+                div.classList.add("coin");
+
+            }else{
+
+                div.classList.add("path");
+
+            }
+
+            if(x === 1 && y === 1){
+
+                div.classList.remove("path");
+                div.classList.add("player");
+
+            }
+
+            mazeContainer.appendChild(div);
+
+        });
+
+    });
+
+    document.getElementById("levelDisplay")
+    .innerText = level + 1;
+
+}
+
+/* TIMER */
+function startTimer(){
+
+    timer = setInterval(()=>{
+
+        timeLeft--;
+
+        document.getElementById("timer")
+        .innerText = timeLeft;
+
+        if(timeLeft <= 0){
+
+            clearInterval(timer);
+
+            loseLife();
+
+        }
+
+    },1000);
+
+}
+
+/* MOVE */
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key === "ArrowUp") movePlayer(0,-1);
+    if(e.key === "ArrowDown") movePlayer(0,1);
+    if(e.key === "ArrowLeft") movePlayer(-1,0);
+    if(e.key === "ArrowRight") movePlayer(1,0);
+
+});
+
+/* MOBILE BUTTONS */
+function manualMove(direction){
+
+    if(direction === "up") movePlayer(0,-1);
+    if(direction === "down") movePlayer(0,1);
+    if(direction === "left") movePlayer(-1,0);
+    if(direction === "right") movePlayer(1,0);
+
+}
+
+/* PLAYER MOVEMENT */
+function movePlayer(dx,dy){
+
+    const maze = mazeLevels[currentLevel];
+
+    let newX = playerPosition.x + dx;
+    let newY = playerPosition.y + dy;
+
+    if(maze[newY][newX] !== 1){
+
+        updatePlayer(newX,newY);
+
+    }
+
+}
+
+/* UPDATE PLAYER */
+function updatePlayer(x,y){
+
+    const maze = mazeLevels[currentLevel];
+
+    const cols = maze[0].length;
+
+    const cells =
+    document.querySelectorAll('#maze .cell');
+
+    const oldIndex =
+    playerPosition.y * cols + playerPosition.x;
+
+    cells[oldIndex].classList.remove("player");
+    cells[oldIndex].classList.add("path");
+
+    playerPosition = {x,y};
+
+    const newIndex =
+    playerPosition.y * cols + playerPosition.x;
+
+    /* COLLECT COIN */
+    if(maze[y][x] === 3){
+
+        coins++;
+
+        document.getElementById("coinCount")
+        .innerText = coins;
+
+        maze[y][x] = 0;
+
+    }
+
+    /* WIN */
+    if(maze[y][x] === 2){
+
+        clearInterval(timer);
+
+        setTimeout(()=>{
+
+            currentLevel++;
+
+            if(currentLevel < mazeLevels.length){
+
+                alert("🎉 Level Complete!");
+
+                loadLevel(currentLevel);
+
+            }else{
+
+                alert("🏆 You completed all levels!");
+
+                currentLevel = 0;
+
+                coins = 0;
+
+                loadLevel(currentLevel);
+
+            }
+
+        },200);
+
+    }
+
+    cells[newIndex].classList.remove("path");
+    cells[newIndex].classList.add("player");
+
+}
+
+/* LOSE LIFE */
+function loseLife(){
+
+    lives--;
+
+    document.getElementById("lives")
+    .innerText = lives;
+
+    if(lives <= 0){
+
+        alert("💀 Game Over!");
+
+        lives = 3;
+
+        coins = 0;
+
+        currentLevel = 0;
+
+    }
+
+    loadLevel(currentLevel);
+
+}
+
+/* RESTART */
+function restartLevel(){
+
+    loadLevel(currentLevel);
+
+}
+
+/* START */
+loadLevel(currentLevel);
+</script>
+</body>
+<!-- LOADING SCREEN -->
+<div class="loader-wrapper" id="loader-wrapper">
+    <div class="loader"></div>
+    <div class="loader-text">
+        Loading Brochure...
+    </div>
+</div>
+
+</html>
